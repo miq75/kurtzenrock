@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <!-------------- SPÉCIFIQUE À LA PAGE (FIXE) ------------------>
+        <title>Kurtzenrock — Le rock'n'roll</title>
+        <meta name="description" content="Kurtzenrock - C'est quoi le rock'n'roll ?">
+        <!-------------- JUSQU'ICI ! ------------------>
+    </head>
+
+    <body>
+        <!-- ===== NAVIGATION ===== -->
+        <header class="header">
+            <div class="header__logo"><a href=index.html><img src="images/logo.jpg" alt="Logo de Kurtzenrock"></a></div>
+            <nav class=header__nav> <ul class="header__menu">
+                <li><a href="rock-n-roll.html">Le rock'n'roll</a></li>
+                <li><a href="rock-acrobatique.html">Le rock acrobatique</a></li>
+                <li><a href="index.html">Nos activités</a></li>
+                <li><a href="cours.html">Nos cours</a></li>
+                <li><a href="inscription.html">S'inscrire</a></li>
+                <li><a href="contact.html">Nous contacter</a></li>
+            </ul> </nav>
+        </header>
+
+        <!-- ===== CONTENU ===== -->
+        <main>
+            <section class="hero"> <div class="hero__card"> <div class="card__text">
+                <!-------------- SPÉCIFIQUE À LA PAGE (MODIFIABLE) ------------------>
+                <h1>Le Rock'n'Roll</h1>
+                <p>Une danse sociale et dynamique</p>
+                <!-------------- JUSQU'ICI ! ------------------>
+            </div> </div> </section>
+
+
+            <section class="cards">
+                <!-- --- EXEMPLE : Carte avec texte seul 
+                <article class="card"> <div class="card__text">
+                    <div> <h2>Titre</h2> <p>Contenu du texte…</p> </div> 
+                </div> </article>
+                -->
+                <!-- --- EXEMPLE : Carte avec texte + image 
+                <article class="card"> <div class="card__row">
+                    <div class="card__text"> <h2>Titre</h2> <p>Contenu du texte…</p> </div>
+                    <img class="card__image" src="images/jupe.jpg" alt="Une jupe qui vole !">
+                </div> </article>
+                -->
+                <!-- --- EXEMPLE : Carte avec texte en haut puis texte + image en bas
+                <article class="card card--stacked"> <div class="card__text">
+                    <div> <h2>Titre</h2> <p>Contenu du texte…</p> </div> 
+                </div> <div class="card__row"> 
+                    <div class="card__text">
+                        <h2>Titre</h2> <p>Contenu du texte…</p>
+                    </div>
+                    <img class="card__image" src="images/plan.png" alt="Kurtzenhouse quartier gare">
+                </div> </article>
+                -->
+
+                <!-------------- SPÉCIFIQUE À LA PAGE (MODIFIABLE) ------------------>
+                <article class="card"> <div class="card__text">
+                    <div> 
+                        <h2>Origines du rock</h2> 
+                        <p> Le rock'n'roll est une danse de couple dynamique et sociale née aux États-Unis dans
+                        les années 1950, issue de l'évolution du Lindy Hop, du Boogie Woogie et du Jitterbug.
+                        Elle se caractérise par une connexion constante entre les partenaires et une structure
+                        rythmique marquée par des passes de séparation, rapprochement et rotation.  Cette danse
+                        est reconnu pour son côté ludique, son énergie et sa capacité à s'adapter à une large
+                        diversité musicale, allant des tubes des années 50 à la pop contemporaine.  Elle se
+                        décline en 2 styles.</p>
+                    </div> 
+                    <div> 
+                        <h3>Rock à 6 temps</h3>
+                        <p> Le plus classique et international. Il s'exécute sur une mesure et demie (6 temps
+                        musicaux) et peut inclure des figures acrobatiques. </p>
+                    </div> 
+                    <div> 
+                        <h3>Rock à 4 temps (rock social)</h3>
+                        <p> Plus accessible et simplifié, il se danse sur 4 temps musicaux et est très populaire
+                        dans les bals et soirées.  </p>
+                    </div> 
+                    <div> 
+                        <a href="rock-acrobatique.html">En savoir plus sur son grand frère le rock acrobatique ?</a>
+                    </div> 
+                </div> </article>
+
+                <article class="card card--stacked"> <div class="card__row"> 
+                    <div class="card__text">
+                        <h2>Notre pratique</h2> 
+                        <div> 
+                            <p> La rythmique et la connexion du rock'n'roll en 6 temps sont partagées par le
+                            rock acrobatique. C'est donc ce style que nous pratiquons et que nous vous
+                            invitons à essayer. </p>
+                        </div> 
+                        <div> 
+                            <p> Notre objectif étant de vous donner la capacité de danser avec des partenaires
+                            variés lors des évènements festifs, notre pratique du rock'n'roll au
+                            sol implique des changements fréquents de partenaires de danse (ce qui n'est pas le
+                            cas pour notre pratique du rock acrobatique qui exige un travail régulier et
+                            pointilleux avec le même partenaire).
+                            </p>
+                        </div> 
+                    </div> 
+                    <img class="card__image" src="images/jupe.jpg" alt="Une jupe qui virevolte">
+                </div> </article>
+                <!-------------- JUSQU'ICI ! ------------------>
+
+            </section>
+
+        <!-- ===== PIED DE PAGE ===== -->
+        <footer class="footer">
+            <a href="legal.html">Mentions légales</a>
+            <span class="footer__sep"></span> 
+            <a href="contact.html">Contact</a> 
+            <span class="footer__sep"></span> 
+            <a href="inscription.html">Inscription</a>
+        </footer>
+
+        <!-- ===== PERMET D'AFFICHER LES PHOTOS EN PLEIN ÉCRAN ===== -->
+        <dialog class="lightbox">
+            <img class="lightbox__img" src="" alt="">
+            <button class="lightbox__close">&times;</button>
+        </dialog>
+        <script>
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = lightbox.querySelector('.lightbox__img');
+            const lightboxClose = lightbox.querySelector('.lightbox__close');
+            document.querySelectorAll('.card__image').forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.showModal();
+                });
+            });
+            lightboxClose.addEventListener('click', () => lightbox.close());
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) lightbox.close();
+            });
+        </script>
+    </body>
+</html>

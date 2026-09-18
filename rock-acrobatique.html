@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <!-------------- SPÉCIFIQUE À LA PAGE (FIXE) ------------------>
+        <title>Kurtzenrock — Le rock acrobatique</title>
+        <meta name="description" content="Kurtzenrock - C'est quoi le rock acrobatique ?">
+        <!-------------- JUSQU'ICI ! ------------------>
+    </head>
+
+    <body>
+        <!-- ===== NAVIGATION ===== -->
+        <header class="header">
+            <div class="header__logo"><a href=index.html><img src="images/logo.jpg" alt="Logo de Kurtzenrock"></a></div>
+            <nav class=header__nav> <ul class="header__menu">
+                <li><a href="rock-n-roll.html">Le rock'n'roll</a></li>
+                <li><a href="rock-acrobatique.html">Le rock acrobatique</a></li>
+                <li><a href="index.html">Nos activités</a></li>
+                <li><a href="cours.html">Nos cours</a></li>
+                <li><a href="inscription.html">S'inscrire</a></li>
+                <li><a href="contact.html">Nous contacter</a></li>
+            </ul> </nav>
+        </header>
+
+        <!-- ===== CONTENU ===== -->
+        <main>
+            <section class="hero"> <div class="hero__card"> <div class="card__text">
+                <!-------------- SPÉCIFIQUE À LA PAGE (MODIFIABLE) ------------------>
+                <h1>Le Rock Acrobatique</h1>
+                <p>Un sport intense chorégraphié</p>
+                <!-------------- JUSQU'ICI ! ------------------>
+            </div> </div> </section>
+
+
+            <section class="cards">
+                <!-- --- EXEMPLE : Carte avec texte seul 
+                <article class="card"> <div class="card__text">
+                    <div> <h2>Titre</h2> <p>Contenu du texte…</p> </div> 
+                </div> </article>
+                -->
+                <!-- --- EXEMPLE : Carte avec texte + image 
+                <article class="card"> <div class="card__row">
+                    <div class="card__text"> <h2>Titre</h2> <p>Contenu du texte…</p> </div>
+                    <img class="card__image" src="images/jupe.jpg" alt="Une jupe qui vole !">
+                </div> </article>
+                -->
+                <!-- --- EXEMPLE : Carte avec texte en haut puis texte + image en bas
+                <article class="card card--stacked"> <div class="card__text">
+                    <div> <h2>Titre</h2> <p>Contenu du texte…</p> </div> 
+                </div> <div class="card__row"> 
+                    <div class="card__text">
+                        <h2>Titre</h2> <p>Contenu du texte…</p>
+                    </div>
+                    <img class="card__image" src="images/plan.png" alt="Kurtzenhouse quartier gare">
+                </div> </article>
+                -->
+
+                <!-------------- SPÉCIFIQUE À LA PAGE (MODIFIABLE) ------------------>
+                <article class="card"> <div class="card__text">
+                    <h2>Danse ou sport&nbsp?</h2> 
+                    <div> 
+                        <p> Le rock acrobatique est une danse de couple qui combine le rock à 6 temps et des
+                        acrobaties impressionnantes. Née dans les années 1970 à Lyon, elle s'inscrit dans la
+                        continuité du Lindy Hop, du Jitterbug et du Rock'N'Roll traditionnel (dont elle partage
+                        le rythme en 6 temps), en y ajoutant une dimension spectaculaire et sportive.  Elle se
+                        danse sur un pas de base dit « sauté » — un kick ball change suivi de deux jetés — qui
+                        lui donne son énergie et sa tonicité caractéristiques. </p>
+                    </div> 
+                    <div> 
+                        <p>Entre les déplacements en sauté s'intercalent des chorégraphies et des acrobaties :
+                        portés aériens, rotations, saltos, plongeons et figures statiques courtes.
+                        Contrairement au rock à plat, les partenaires d'un niveau avancé peuvent se lâcher pour
+                        exécuter ces figures, ce qui exige une confiance mutuelle et une synchronisation
+                        millimétrée. Entre le pas sauté et les acrobaties, c'est une danse très physique : une
+                        passage d'une minute trente équivaut en dépense énergétique à un 800m sur place.  </p>
+                    </div> 
+                    <div> 
+                        <p> La discipline connaît des compétitions internationales.  </p>
+                    </div> 
+                    <div> 
+                        <a href="rock-n-roll.html">En savoir plus sur son petit frère le rock à plat&nbsp;?</a>
+                    </div> 
+                </div> </article>
+
+                <article class="card card--stacked"> <div class="card__row"> 
+                    <div class="card__text">
+                        <h2>Notre pratique</h2> 
+                        <div> 
+                            <p> À kurtzenrock nous pratiquons le rock acrobatique dans une optique de loisir et en démonstration. </p>
+                        </div> 
+                        <div> 
+                            <p> Un entrainement avec nous se déroulera comme une session de sport intense : échauffement complet du
+                            corps, coordination, musculation et gainage (nécessaire pour les acrobaties), cardio (généralement combiné à
+                            l'apprentissage du pas de base), et enfin le travail d'acrobaties en toute sécurité.  </p>
+                        </div> 
+                    </div> 
+                    <img class="card__image" src="images/althero.png" alt="Une acrobatie : l'althérophile">
+                </div> </article>
+                <!-------------- JUSQU'ICI ! ------------------>
+
+            </section>
+
+        <!-- ===== PIED DE PAGE ===== -->
+        <footer class="footer">
+            <a href="legal.html">Mentions légales</a>
+            <span class="footer__sep"></span> 
+            <a href="contact.html">Contact</a> 
+            <span class="footer__sep"></span> 
+            <a href="inscription.html">Inscription</a>
+        </footer>
+
+        <!-- ===== PERMET D'AFFICHER LES PHOTOS EN PLEIN ÉCRAN ===== -->
+        <dialog class="lightbox">
+            <img class="lightbox__img" src="" alt="">
+            <button class="lightbox__close">&times;</button>
+        </dialog>
+        <script>
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = lightbox.querySelector('.lightbox__img');
+            const lightboxClose = lightbox.querySelector('.lightbox__close');
+            document.querySelectorAll('.card__image').forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.showModal();
+                });
+            });
+            lightboxClose.addEventListener('click', () => lightbox.close());
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) lightbox.close();
+            });
+        </script>
+    </body>
+</html>

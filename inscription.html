@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <!-------------- SPÉCIFIQUE À LA PAGE (FIXE) ------------------>
+        <title>Kurtzenrock — Inscription et tarifs</title>
+        <meta name="description" content="Kurtzenrock - Combien coutent nos cours et comment s'y inscrire.">
+        <!-------------- JUSQU'ICI ! ------------------>
+    </head>
+
+    <body>
+        <!-- ===== NAVIGATION ===== -->
+        <header class="header">
+            <div class="header__logo"><a href=index.html><img src="images/logo.jpg" alt="Logo de Kurtzenrock"></a></div>
+            <nav class=header__nav> <ul class="header__menu">
+                <li><a href="rock-n-roll.html">Le rock'n'roll</a></li>
+                <li><a href="rock-acrobatique.html">Le rock acrobatique</a></li>
+                <li><a href="index.html">Nos activités</a></li>
+                <li><a href="cours.html">Nos cours</a></li>
+                <li><a href="inscription.html">S'inscrire</a></li>
+                <li><a href="contact.html">Nous contacter</a></li>
+            </ul> </nav>
+        </header>
+
+        <!-- ===== CONTENU ===== -->
+        <main>
+            <section class="hero"> <div class="hero__card"> <div class="card__text">
+                <!-------------- SPÉCIFIQUE À LA PAGE (MODIFIABLE) ------------------>
+                <h1>Tarifs et inscription</h1>
+                <p>Tout ce qu'il faut faire pour participer&nbsp;!</p>
+                <a href=cours.html>La première séance est gratuite&nbsp;!<br>Accéder à notre salle d'entrainement</a></p>
+                <!-------------- JUSQU'ICI ! ------------------>
+            </div> </div> </section>
+
+
+            <section class="cards">
+                <!-- --- EXEMPLE : Carte avec texte seul 
+                <article class="card"> <div class="card__text">
+                    <div> <h2>Titre</h2> <p>Contenu du texte…</p> </div> 
+                </div> </article>
+                -->
+                <!-- --- EXEMPLE : Carte avec texte + image 
+                <article class="card"> <div class="card__row">
+                    <div class="card__text"> <h2>Titre</h2> <p>Contenu du texte…</p> </div>
+                    <img class="card__image" src="images/jupe.jpg" alt="Une jupe qui vole !">
+                </div> </article>
+                -->
+                <!-- --- EXEMPLE : Carte avec texte en haut puis texte + image en bas
+                <article class="card card--stacked"> <div class="card__text">
+                    <div> <h2>Titre</h2> <p>Contenu du texte…</p> </div> 
+                </div> <div class="card__row"> 
+                    <div class="card__text">
+                        <h2>Titre</h2> <p>Contenu du texte…</p>
+                    </div>
+                    <img class="card__image" src="images/plan.png" alt="Kurtzenhouse quartier gare">
+                </div> </article>
+                -->
+
+                <!-------------- SPÉCIFIQUE À LA PAGE (MODIFIABLE) ------------------>
+                <article class="card"> <div class="card__text">
+                    <h2>Vos inscriptions se passent ici&nbsp!</h2>
+                    <div>
+                        <h3>Planification des cours</h3>
+                        <p> Nos cours débuteront pour la saison 2026-2027 le mercredi 30 septembre 2026, à 19h. <br> 
+                        Le premier trimestre va du 30 septembre au 16 décembre inclus, soit <strong>12
+                        mercredis</strong>. <br>
+                        Nous vous fournirons bientôt les date pour les deux autres semestres. </p> 
+                    </div>
+                    <div>
+                        <h3>Adhésion 2026-2027</h3>
+                        <a href="adhérer.html">Bientôt vous pourrez adhérer en ligne</a>
+                        <p>Pour l'instant venez à notre rencontre.</p>
+                    </div>
+                </div> </article>
+
+                <article class="card"> <div class="card__text">
+                    <h2>Nos tarifs sont là&nbsp;!</h2>
+                    <p>La <strong>première séance est gratuite</strong>, mais vous pouvez bien entendu vous inscrire en amont.</p>
+                    <p>La <strong>cotisation est de 10€</strong> et doit être réglée avec les premiers cours pris
+                    chaque année.<br>
+                    Les formules ci-dessous vous donnent <strong>accès à tous les cours</strong> de la période: rock'n'roll débutant, intermédiaire
+                    et rock acrobatique.</p>
+                    <ul>
+                        <li><h3>Formule trimestrielle</h3> – La plus malléable si vous voulez tester,
+                        <strong>60€</strong> pour les 12 cours du trimestre.</li>
+                        <li><h3>Formule annuelle</h3> – La plus rentable si vous êtes assidus, 
+                        <strong>150€</strong> pour tous les cours de l'année (soit 3 trimestres). </li>
+                    </ul>
+                </div> </article>
+                <!-------------- JUSQU'ICI ! ------------------>
+
+            </section>
+
+        <!-- ===== PIED DE PAGE ===== -->
+        <footer class="footer">
+            <a href="legal.html">Mentions légales</a>
+            <span class="footer__sep"></span> 
+            <a href="contact.html">Contact</a> 
+            <span class="footer__sep"></span> 
+            <a href="inscription.html">Inscription</a>
+        </footer>
+
+        <!-- ===== PERMET D'AFFICHER LES PHOTOS EN PLEIN ÉCRAN ===== -->
+        <dialog class="lightbox">
+            <img class="lightbox__img" src="" alt="">
+            <button class="lightbox__close">&times;</button>
+        </dialog>
+        <script>
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = lightbox.querySelector('.lightbox__img');
+            const lightboxClose = lightbox.querySelector('.lightbox__close');
+            document.querySelectorAll('.card__image').forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.showModal();
+                });
+            });
+            lightboxClose.addEventListener('click', () => lightbox.close());
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) lightbox.close();
+            });
+        </script>
+    </body>
+</html>

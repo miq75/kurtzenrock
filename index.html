@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <!-------------- SPÉCIFIQUE À LA PAGE (FIXE) ------------------>
+        <title>Kurtzenrock — Accueil</title>
+        <meta name="description" content="Kurtzenrock - Pratique de rock'n'roll et de rock acrobatique">
+        <!-------------- JUSQU'ICI ! ------------------>
+    </head>
+
+    <body>
+        <!-- ===== NAVIGATION ===== -->
+        <header class="header">
+            <div class="header__logo"><a href=index.html><img src="images/logo.jpg" alt="Logo de Kurtzenrock"></a></div>
+            <nav class=header__nav> <ul class="header__menu">
+                <li><a href="rock-n-roll.html">Le rock'n'roll</a></li>
+                <li><a href="rock-acrobatique.html">Le rock acrobatique</a></li>
+                <li><a href="index.html">Nos activités</a></li>
+                <li><a href="cours.html">Nos cours</a></li>
+                <li><a href="inscription.html">S'inscrire</a></li>
+                <li><a href="contact.html">Nous contacter</a></li>
+            </ul> </nav>
+        </header>
+
+        <!-- ===== CONTENU ===== -->
+        <main>
+            <section class="hero"> <div class="hero__card"> <div class="card__text">
+                <!-------------- SPÉCIFIQUE À LA PAGE (MODIFIABLE) ------------------>
+                <h1>Bienvenue chez Kurtzenrock</h1>
+                <p>Apprenez depuis les bases du rock'n'roll jusqu'aux acrobaties les plus grisantes.</p>
+                <a href="inscription.html">S'inscrire</a>
+                <!-------------- JUSQU'ICI ! ------------------>
+            </div> </div> </section>
+
+
+            <section class="cards">
+                <!-- --- EXEMPLE : Carte avec texte seul 
+                <article class="card"> <div class="card__text">
+                    <div> <h2>Titre</h2> <p>Contenu du texte…</p> </div> 
+                </div> </article>
+                -->
+                <!-- --- EXEMPLE : Carte avec texte + image 
+                <article class="card"> <div class="card__row">
+                    <div class="card__text"> <h2>Titre</h2> <p>Contenu du texte…</p> </div>
+                    <img class="card__image" src="images/jupe.jpg" alt="Une jupe qui vole !">
+                </div> </article>
+                -->
+                <!-- --- EXEMPLE : Carte avec texte en haut puis texte + image en bas
+                <article class="card card--stacked"> <div class="card__text">
+                    <div> <h2>Titre</h2> <p>Contenu du texte…</p> </div> 
+                </div> <div class="card__row"> 
+                    <div class="card__text">
+                        <h2>Titre</h2> <p>Contenu du texte…</p>
+                    </div>
+                    <img class="card__image" src="images/plan.png" alt="Kurtzenhouse quartier gare">
+                </div> </article>
+                -->
+
+                <!-------------- SPÉCIFIQUE À LA PAGE (MODIFIABLE) ------------------>
+                <article class="card"> <div class="card__text">
+                    <h2>Nos activités</h2>
+                    <p>Nous proposons des cours de Rock'n'roll et des entrainements de rock acrobatique, à Kurtzenhouse proche
+                    de la gare.</p>
+                    <div class="card__a">
+                        <a href="rock-n-roll.html">C'est quoi le rock'n'roll&nbsp;?</a>
+                        <a href="rock-acrobatique.html">C'est quoi le rock acrobatique&nbsp;?</a>
+                    </div>
+                    <div class="card__a">
+                        <a href="cours.html">Nos cours</a>
+                        <a href="inscription.html">S'inscrire</a>
+                        <a href="contact.html">Nous contacter</a>
+                    </div> 
+                </div> </article>
+
+                <article class="card"> <div class="card__text">
+                    <h2>Nos dernières actualités</h2>
+                    <ul>
+                        <li><strong>25 aout 2026</strong> — Création de l'association.</li>
+                        <li><strong>18 septembre 2026</strong> — Création et mise en ligne du site.</li>
+                        <li><strong>30 septembre 2026</strong> — Début des cours, consultez nos horaires.</li>
+                    </ul>
+                </div> </article>
+                <!-------------- JUSQU'ICI ! ------------------>
+
+            </section>
+
+        <!-- ===== PIED DE PAGE ===== -->
+        <footer class="footer">
+            <a href="legal.html">Mentions légales</a>
+            <span class="footer__sep"></span> 
+            <a href="contact.html">Contact</a> 
+            <span class="footer__sep"></span> 
+            <a href="inscription.html">Inscription</a>
+        </footer>
+
+        <!-- ===== PERMET D'AFFICHER LES PHOTOS EN PLEIN ÉCRAN ===== -->
+        <dialog class="lightbox">
+            <img class="lightbox__img" src="" alt="">
+            <button class="lightbox__close">&times;</button>
+        </dialog>
+        <script>
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = lightbox.querySelector('.lightbox__img');
+            const lightboxClose = lightbox.querySelector('.lightbox__close');
+            document.querySelectorAll('.card__image').forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.showModal();
+                });
+            });
+            lightboxClose.addEventListener('click', () => lightbox.close());
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) lightbox.close();
+            });
+        </script>
+    </body>
+</html>

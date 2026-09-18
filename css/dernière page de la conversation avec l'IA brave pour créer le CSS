@@ -1,0 +1,497 @@
+```css
+/* ============================================================
+   STYLE.CSS – Site de l'association
+   ============================================================
+   Structure :
+   1. Variables
+   2. Reset & Base
+   3. Body – fond en tuiles + voile
+   4. Header – logo + menu responsive
+   5. Hero – carte centrée, dégradé inversé
+   6. Cards – grille responsive
+   7. Tables – partagé hero + cards
+   8. Footer – liens fins
+   9. Lightbox – plein écran
+   10. Media queries (du plus grand au plus petit)
+   ============================================================ */
+
+
+/* ============================================================
+   1. VARIABLES
+   ============================================================ */
+:root {
+  /* Dégradé principal (turquoise → mauve) */
+  --grad-start: #008B8B;
+  --grad-end: #4B0082;
+
+  /* Boutons du menu */
+  --btn-bg: rgba(255, 255, 255, 0.12);
+  --btn-bg-hover: rgba(255, 255, 255, 0.25);
+  --btn-border: rgba(255, 255, 255, 0.25);
+  --btn-text: #d3d3d3;
+
+  /* Texte des cartes / hero */
+  --card-text: #f0f0f0;
+
+  /* Layout */
+  --gap: 2rem;
+  --col-min: 140px;
+
+  /* Cartes */
+  --card-opacity: 0.88;
+  --card-radius: 16px;
+}
+
+
+/* ============================================================
+   2. RESET & BASE
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden; /* évite le scroll horizontal dû à 100vw */
+}
+
+
+/* ============================================================
+   3. BODY – fond en tuiles + voile blanc
+   ============================================================ */
+body {
+  position: relative;
+  background-color: #f5f0f8; /* couleur de secours */
+  background-image: url('../images/tuile.png');
+  background-size: 120px 120px;
+  background-repeat: repeat;
+}
+
+/* Voile blanc semi-transparent pour adoucir le motif */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* ============================================================
+   4. HEADER – logo à gauche, menu à droite
+   ============================================================ */
+.header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  padding: 1rem 2rem;
+  width: 100vw;
+  background: linear-gradient(to right, var(--grad-start), var(--grad-end));
+  min-height: 80px;
+}
+
+/* Logo */
+.header__logo img {
+  max-height: 200px;
+  width: auto;
+}
+
+/* Nav – prend tout l'espace restant à droite du logo */
+.header__nav {
+  flex: 1;
+}
+
+/* Menu – remplissage vertical (colonne par colonne)
+   Par défaut : 2 lignes × 3 colonnes */
+.header__menu {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(var(--col-min), 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 0.5rem 1rem;
+  list-style: none;
+}
+
+/* Boutons du menu */
+.header__menu a {
+  display: block;
+  padding: 0.6rem 1rem;
+  font-size: 1.05rem;
+  color: var(--btn-text);
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.header__menu a:hover {
+  background: var(--btn-bg-hover);
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   5. HERO – carte centrée, dégradé inversé (mauve → turquoise)
+   ============================================================ */
+.hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 2rem 1rem 0; /* 0 en bas pour coller aux cards */
+  display: flex;
+  justify-content: center;
+}
+
+.hero__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  border-radius: var(--card-radius);
+  background: linear-gradient(
+    to left, /* sens inversé par rapport aux cards */
+    rgba(0, 139, 139, var(--card-opacity)),
+    rgba(75, 0, 130, var(--card-opacity))
+  );
+  color: var(--card-text);
+  backdrop-filter: blur(2px);
+}
+
+.hero__card h1 {
+  font-size: 2rem;
+}
+
+/* Bouton CTA dans le hero */
+.hero__card a {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--card-text);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.hero__card a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   6. CARDS – grille responsive
+   ============================================================ */
+.cards {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: var(--card-radius);
+  background: linear-gradient(
+    to right,
+    rgba(0, 139, 139, var(--card-opacity)),
+    rgba(75, 0, 130, var(--card-opacity))
+  );
+  color: var(--card-text);
+  backdrop-filter: blur(2px);
+}
+
+/* Texte dans la carte (réutilisé aussi dans le hero) */
+.card__text {
+  flex: 1;
+}
+
+.card__text h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.card__text p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Espace dans la succession de 2 div */
+.card__text > div + div {
+  margin-top: 1rem;
+}
+
+/* Image dans la carte */
+.card__image {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: zoom-in; /* signale que l'image est cliquable (lightbox) */
+}
+
+
+/* ============================================================
+   7. TABLES – partagé entre hero et cards (via .card__text)
+   ============================================================ */
+.card__text table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.card__text td,
+.card__text th {
+  padding: 0.3rem 0.5rem;
+}
+
+
+/* ============================================================
+   8. FOOTER – liens fins, dégradé opaque
+   ============================================================ */
+.footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 3rem;
+  padding: 1rem;
+  background: linear-gradient(to left, var(--grad-start), var(--grad-end));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  color: var(--card-text); /* les séparateurs héritent de cette couleur */
+}
+
+.footer a {
+  font-size: 0.9rem;
+  color: var(--card-text);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Séparateur horizontal entre les liens */
+.footer__sep {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--card-text);
+  opacity: 0.6;
+}
+
+
+/* ============================================================
+   9. LIGHTBOX – affichage plein écran au clic sur une image
+   ============================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.85);
+  border: none;
+  z-index: 100;
+}
+
+/* Flex uniquement quand le dialog est ouvert */
+.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.lightbox__img {
+  max-width: 95%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: var(--card-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.lightbox__close:hover {
+  opacity: 1;
+}
+
+
+/* ============================================================
+   10. MEDIA QUERIES (du plus grand au plus petit)
+   ============================================================ */
+
+/* --- ≤ 1100px : menu passe à 2 colonnes (côte à côte) --- */
+@media (max-width: 1100px) {
+  .header__menu {
+    grid-template-rows: repeat(3, auto); /* 3 lignes × 2 colonnes */
+  }
+}
+
+/* --- ≤ 768px : menu passe sous le logo, 3 colonnes --- */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .header__logo {
+    width: 100%;
+  }
+
+  .header__logo img {
+    width: 100%;
+    max-height: none;
+    display: block;
+  }
+
+  .header__menu {
+    grid-template-rows: repeat(2, auto); /* 2 lignes × 3 colonnes */
+    width: 100%;
+    padding: 0 1rem 1rem;
+  }
+}
+
+/* --- ≤ 600px : hero + cards en mode mobile --- */
+@media (max-width: 600px) {
+  .hero {
+    padding: 1rem 1rem 0;
+  }
+
+  .hero__card {
+    border-radius: 8px;
+    padding: 2rem 1.25rem;
+  }
+
+  .hero__card h1 {
+    font-size: 1.5rem;
+  }
+
+  .cards {
+    padding: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .card__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* --- ≤ 550px : menu passe à 2 colonnes (sous le logo) --- */
+@media (max-width: 550px) {
+  .header__menu {
+    grid-template-rows: repeat(3, auto); /* 3 lignes × 2 colonnes */
+  }
+}
+
+/* --- ≤ 480px : footer en colonne, séparateurs masqués --- */
+@media (max-width: 480px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__sep {
+    display: none;
+  }
+}
+
+/* --- ≤ 400px : menu passe à 1 colonne --- */
+@media (max-width: 400px) {
+  .header__menu {
+    grid-template-rows: repeat(6, auto); /* 6 lignes × 1 colonne */
+  }
+}
+```
+
+**Résumé des breakpoints :**
+
+| Largeur | Menu | Cards / Hero | Footer |
+|---|---|---|---|
+| > 1100 px | 3 col, côte à côte | grille auto-fit | liens en ligne |
+| 768 – 1100 px | 2 col, côte à côte | grille auto-fit | liens en ligne |
+| 600 – 768 px | 3 col, sous le logo | 1 col, en pile | liens en ligne |
+| 480 – 600 px | 3 col, sous le logo | 1 col, en pile | liens en ligne |
+| 400 – 480 px | 2 col, sous le logo | 1 col, en pile | liens en colonne |
+| ≤ 400 px | 1 col, sous le logo | 1 col, en pile | liens en colonne |
+
+**JS lightbox (à la fin du `<body>`) :**
+
+```html
+<script>
+  const lightbox = document.querySelector('.lightbox');
+  const lightboxImg = lightbox.querySelector('.lightbox__img');
+  const lightboxClose = lightbox.querySelector('.lightbox__close');
+
+  // Ouvrir au clic sur une image de card
+  document.querySelectorAll('.card__image').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.showModal();
+    });
+  });
+
+  // Fermer : bouton ×, clic sur le fond, touche Échap (natif)
+  lightboxClose.addEventListener('click', () => lightbox.close());
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.close();
+  });
+</script>
+```
+
+C'est ta base de travail complète et commentée. Bon courage pour la suite !
+
+
