@@ -1,0 +1,63 @@
+La solution est **Flexbox** avec `justify-content: space-between` sur le conteneur des icônes. Voici un exemple complet :
+
+```html
+<div class="card-contact">
+  <h2>Contact</h2>
+  <p>12 rue des Associations, 75000 Paris</p>
+  <div class="social-links">
+    <a href="https://facebook.com/votreasso" target="_blank" aria-label="Facebook">
+      <img src="icone-fb.png" alt="Facebook" width="32" height="32">
+    </a>
+    <a href="https://instagram.com/votreasso" target="_blank" aria-label="Instagram">
+      <img src="icone-ig.png" alt="Instagram" width="32" height="32">
+    </a>
+    <a href="https://twitter.com/votreasso" target="_blank" aria-label="X / Twitter">
+      <img src="icone-tw.png" alt="X" width="32" height="32">
+    </a>
+  </div>
+</div>
+```
+
+```css
+.card-contact {
+  max-width: 400px;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: space-between;  /* répartit les icônes sur toute la largeur */
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+}
+```
+
+**Variantes de `justify-content`** selon l'effet souhaité :
+
+| Valeur | Effet |
+|--------|-------|
+| `space-between` | 1re et dernière icône collées aux bords, espace égal entre les autres |
+| `space-around` | Espace égal de chaque côté de chaque icône (y compris bords) |
+| `space-evenly` | Espace strictement identique partout (bords inclus) |
+| `center` + `gap: 1rem` | Groupées au centre avec un écart fixe |
+
+Si vous préférez un écart **fixe** plutôt qu'une répartition automatique, remplacez `justify-content: space-between` par :
+
+```css
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;  /* écart constant entre chaque icône */
+}
+```
+
+Le conteneur est déjà responsive par nature : si la carte se rétrécit, les icônes restent sur une ligne (elles sont petites) et la répartition s'adapte automatiquement sans media query.
+
+
