@@ -63,7 +63,7 @@ body {
   position: relative;
   background-color: #f5f0f8; /* couleur de secours */
   background-image: url('../images/tuile.png');
-  background-size: 120px 120px;
+  background-size: 100px auto;
   background-repeat: repeat;
 }
 
