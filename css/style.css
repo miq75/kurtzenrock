@@ -352,6 +352,10 @@ body::before {
   text-align: right;
 }
 
+.card__image[data-url] {
+  cursor: pointer;
+}
+
 /* ============================================================
    7. TABLES – partagé entre hero et cards (via .card__text)
    ============================================================ */
@@ -499,6 +503,16 @@ body::before {
   }
 
   .card__row .card__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .card__row a {
+    flex: 0 0 50%;
+  }
+
+  .card__row a .card__image {
     width: 100%;
     height: auto;
     aspect-ratio: 4 / 3;

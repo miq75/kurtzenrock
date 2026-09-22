@@ -110,6 +110,10 @@
             const lightboxClose = lightbox.querySelector('.lightbox__close');
             document.querySelectorAll('.card__image').forEach(img => {
                 img.addEventListener('click', () => {
+                    if (img.dataset.url) {
+                        window.open(img.dataset.url, '_blank');
+                        return;
+                    }
                     lightboxImg.src = img.src;
                     lightboxImg.alt = img.alt;
                     lightbox.showModal();
