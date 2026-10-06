@@ -173,6 +173,7 @@ body::before {
 
 /* Bouton CTA dans le hero */
 .hero__card a {
+  margin: 10pt;
   display: inline-block;
   padding: 0.75rem 2rem;
   font-size: 1rem;
@@ -222,6 +223,7 @@ body::before {
 
 /* Boutons centrés dans les card */
 .card__a {
+  margin: 10pt;
   display: flex;
   justify-content: center;
   gap: 1rem;

@@ -27,38 +27,7 @@
 
         <!-- ===== CONTENU ===== -->
         <main>
-            <!--
-            <section class="hero"> <div class="hero__card"> <div class="card__text">
-                <!-------------- SPÉCIFIQUE À LA PAGE (MODIFIABLE) ------------------ >
-                <h1>Bienvenue dans notre association Kurtzenrock&nbsp;!</h1>
-                <a href=cours.html>Toutes les informations pour accéder à notre salle d'entrainement</a></p>
-                <!-------------- JUSQU'ICI ! ------------------ >
-            </div> </div> </section>
-            -->
-
             <section class="cards">
-                <!-- --- EXEMPLE : Carte avec texte seul 
-                <article class="card"> <div class="card__text">
-                    <div> <h2>Titre</h2> <p>Contenu du texte…</p> </div> 
-                </div> </article>
-                -->
-                <!-- --- EXEMPLE : Carte avec texte + image 
-                <article class="card"> <div class="card__row">
-                    <div class="card__text"> <h2>Titre</h2> <p>Contenu du texte…</p> </div>
-                    <img class="card__image" src="images/jupe.jpg" alt="Une jupe qui vole !">
-                </div> </article>
-                -->
-                <!-- --- EXEMPLE : Carte avec texte en haut puis texte + image en bas
-                <article class="card card--stacked"> <div class="card__text">
-                    <div> <h2>Titre</h2> <p>Contenu du texte…</p> </div> 
-                </div> <div class="card__row"> 
-                    <div class="card__text">
-                        <h2>Titre</h2> <p>Contenu du texte…</p>
-                    </div>
-                    <img class="card__image" src="images/plan.png" alt="Kurtzenhouse quartier gare">
-                </div> </article>
-                -->
-
                 <!-------------- SPÉCIFIQUE À LA PAGE (MODIFIABLE) ------------------>
                 <article class="card"> <div class="card__text">
                     <h2>Éditeur du site</h2>
@@ -87,7 +56,6 @@
                     de Kurtzenrock. Toute reproduction est interdite sans autorisation. </p>
                 </div> </article>
                 <!-------------- JUSQU'ICI ! ------------------>
-
             </section>
 
         <!-- ===== PIED DE PAGE ===== -->
@@ -98,31 +66,5 @@
             <span class="footer__sep"></span> 
             <a href="inscription.html">Inscription</a>
         </footer>
-
-        <!-- ===== PERMET D'AFFICHER LES PHOTOS EN PLEIN ÉCRAN ===== -->
-        <dialog class="lightbox">
-            <img class="lightbox__img" src="" alt="">
-            <button class="lightbox__close">&times;</button>
-        </dialog>
-        <script>
-            const lightbox = document.querySelector('.lightbox');
-            const lightboxImg = lightbox.querySelector('.lightbox__img');
-            const lightboxClose = lightbox.querySelector('.lightbox__close');
-            document.querySelectorAll('.card__image').forEach(img => {
-                img.addEventListener('click', () => {
-                    if (img.dataset.url) {
-                        window.open(img.dataset.url, '_blank');
-                        return;
-                    }
-                    lightboxImg.src = img.src;
-                    lightboxImg.alt = img.alt;
-                    lightbox.showModal();
-                });
-            });
-            lightboxClose.addEventListener('click', () => lightbox.close());
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) lightbox.close();
-            });
-        </script>
     </body>
 </html>
