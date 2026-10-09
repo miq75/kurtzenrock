@@ -55,6 +55,13 @@ html, body {
   overflow-x: hidden; /* évite le scroll horizontal dû à 100vw */
 }
 
+a[target="_blank"] {
+    color: var(--btn-text);
+}
+
+a[target="_blank"]:not(.no-icon)::after {
+    content: "\2197";
+}
 
 /* ============================================================
    3. BODY – fond en tuiles + voile blanc
@@ -245,6 +252,14 @@ body::before {
   transition: background 0.3s, transform 0.2s;
 }
 
+a.card__a-flat {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  color: var(--card-text);
+}
+
 /* Texte dans la carte (réutilisé aussi dans le hero) */
 .card__text {
   flex: 1;
@@ -253,6 +268,10 @@ body::before {
 .card__text h2 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
+}
+
+.card__text h2:not(:first-child) {
+    margin-top: 2rem;
 }
 
 .card__text h3 {
