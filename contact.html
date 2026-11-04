@@ -13,18 +13,51 @@
         <!-------------- JUSQU'ICI ! ------------------>
         <script type="application/ld+json"> {
             "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Kurtzenrock",
-            "description": "Association de danse rock et rock acrobatique en Alsace, près de Haguenau et Bischwiller",
-            "url": "https://kurtzenrock.fr",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Chemin des Loisirs",
-                "addressLocality": "Kurtzenhouse",
-                "postalCode": "67240",
-                "addressRegion": "Bas-Rhin",
-                "addressCountry": "FR"
-            }
+            "@graph": [ {
+                "@type": "Organization",
+                "@id": "https://kurtzenrock.fr/#org",
+                "name": "Kurtzenrock",
+                "description": "Association de danse rock et rock acrobatique en Alsace, près de Haguenau et Bischwiller",
+                "url": "https://kurtzenrock.fr",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Chemin des Loisirs",
+                    "addressLocality": "Kurtzenhouse",
+                    "postalCode": "67240",
+                    "addressRegion": "Bas-Rhin",
+                    "addressCountry": "FR"
+                },
+                "areaServed": [
+                    { "@type": "City", "name": "Gries" },
+                    { "@type": "City", "name": "Kurtzenhouse" },
+                    { "@type": "City", "name": "Weitbruch" },
+                    { "@type": "City", "name": "Geudertheim" },
+                    { "@type": "City", "name": "Weyersheim" },
+                    { "@type": "City", "name": "Bischwiller" },
+                    { "@type": "City", "name": "Hoerdt" },
+                    { "@type": "City", "name": "Kaltenhouse" },
+                    { "@type": "City", "name": "Oberhoffen-sur-Moder" },
+                    { "@type": "City", "name": "Brumath" },
+                    { "@type": "City", "name": "Herrlisheim" },
+                    { "@type": "City", "name": "Gambsheim" },
+                    { "@type": "City", "name": "Haguenau" },
+                    { "@type": "City", "name": "Strasbourg" }
+                ]
+            }, {
+                "@type": "Person",
+                "@id": "https://kurtzenrock.fr/contact.html#michel-quenault",
+                "name": "Michel Quenault",
+                "jobTitle": "Professeur de danse",
+                "worksFor": { "@id": "https://kurtzenrock.fr/#org" },
+                "knowsAbout": ["rock", "rock 6 temps", "rock acrobatique"]
+            }, {
+                "@type": "Person",
+                "@id": "https://kurtzenrock.fr/contact.html#beatrice-quenault",
+                "name": "Béatrice Quenault",
+                "jobTitle": "Professeure de danse",
+                "worksFor": { "@id": "https://kurtzenrock.fr/#org" },
+                "knowsAbout": ["rock", "rock 6 temps", "rock acrobatique"]
+            } ]
         } </script>
     </head>
 

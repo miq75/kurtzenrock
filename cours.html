@@ -12,18 +12,12 @@
         <!-------------- JUSQU'ICI ! ------------------>
         <script type="application/ld+json"> {
             "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Kurtzenrock",
-            "description": "Association de danse rock et rock acrobatique en Alsace, près de Haguenau et Bischwiller",
-            "url": "https://kurtzenrock.fr",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Chemin des Loisirs",
-                "addressLocality": "Kurtzenhouse",
-                "postalCode": "67240",
-                "addressRegion": "Bas-Rhin",
-                "addressCountry": "FR"
-            }
+            "@graph": [ {
+                "@type": "WebPage",
+                "@id": "https://kurtzenrock.fr/cours.html",
+                "name": "Cours",
+                "isPartOf": { "@id": "https://kurtzenrock.fr/#org" }
+            } ]
         } </script>
     </head>
 
